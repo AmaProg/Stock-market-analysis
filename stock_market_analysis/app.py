@@ -1,18 +1,13 @@
-from time import sleep
-
 from commun.answer_choice import AnswerChoice
 from commun import utils, constants as k
 from economic import analysis 
 
 def run():
-    """
-        Cette fonction demarre l'application principale.
+    f"""
+        Cette fonction {run} demarre l'application principale.
     """
 
     run_app = True
-
-    #yes_choices = ['yes', 'y']
-    #no_choices = ['no', 'n'] 
 
     #Demande a l'utilisateur s'il veut faire une nouvelle analyse ou arreter l'application
     while True:
@@ -49,12 +44,12 @@ def my_app():
             
             if(ans <= 0 or ans > 2):
                 print("\nLe choix doit etre 1 ou 2\n")
-                sleep(k.TIME_TO_DISPLAY_ERROR_MSG)
+                utils.wait(k.TIME_TO_DISPLAY_ERROR_MSG)
                 continue
             
         except ValueError:
             print("\nVotre choix n'est pas valide \n")
-            sleep(k.TIME_TO_DISPLAY_ERROR_MSG)
+            utils.wait(k.TIME_TO_DISPLAY_ERROR_MSG)
             continue
         
         else:

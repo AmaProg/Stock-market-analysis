@@ -1,3 +1,4 @@
 .env
-venv_laptop
-venv_work
+venv_laptop/
+venv/
+__pycache__
