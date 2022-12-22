@@ -1,11 +1,9 @@
-import json
 import pandas as pd
 
-
 from commun import utils, constants as k
-from time import sleep
-from strategic_analysis.strategic import dividend_strategic
+from analysis_methods import  strategic
 from alive_progress import alive_bar
+from fundamental_analysis import FundamentalAnalysis
 
 def economic_cycle_analysis():
     print("fonction economic_cycle_analyse")
@@ -15,7 +13,7 @@ def analysis_by_comparison():
     utils.display_title("ANALYSE BY COMPARISON")
     
     #Recuperation de la liste des symbole boursier.
-    symbol_list = _get_json_file(k.STOCK_MARKET_SYMBOL_LIST_PATH)
+    symbol_list = utils.read_json_file(k.STOCK_MARKET_SYMBOL_LIST_PATH)
     
     # Demander a l'utilisateur quel type de strategique d'analyse il veux utiliser
     #   1. analyse strategique par dividend
@@ -23,9 +21,9 @@ def analysis_by_comparison():
     #   3. analyse strategique a la lychn
     while True:
         try:
-            print("1. analyse strategique par dividend")
-            print("2. analyse strategique a la warren buffet")
-            print("3. analyse strategique a la lychn\n")
+            print("1. analyse strategique par Dividend")
+            print("2. analyse strategique a la Warren buffet")
+            print("3. analyse strategique a la Lynch\n")
             
             ans = int(input("Quel type de strategie voulez vous utiliser (1, 2 ou 3) : "))
             
@@ -120,7 +118,9 @@ def analysis_by_comparison():
     # Appeler la fonction dividend_strategique
     if(ans == 1):
         
-        dividend_strategic(ticker_list)
+        strategic.dividend_strategic(ticker_list)
+
+        
     
     # ----- choix 2 -----
     elif(ans == 2):
@@ -135,7 +135,7 @@ def analysis_by_comparison():
         
 def _check_ticker_dividend(ticker_list : list) -> bool: 
     
-    dividend_symbol_list = _get_json_file('database\dividend_sample.json')
+    dividend_symbol_list = utils.read_json_file(k.STOCK_MARKET_SYMBOL_LIST_PATH)
     number_element = len(ticker_list)
     bad_ticker_list = []
     
@@ -165,12 +165,12 @@ def _check_ticker_dividend(ticker_list : list) -> bool:
     else:
         return False
         
-def _get_json_file(json_file):    
-    f = open (json_file, "r")
-    symbol_list = json.loads(f.read())
-    f.close()
+# # def _get_json_file(json_file):    
+# #     f = open (json_file, "r")
+# #     symbol_list = json.loads(f.read())
+# #     f.close()
     
-    return symbol_list
+#     return symbol_list
 
 def bad_symbole_selected(number_element: int, msg: str):
     f"""
