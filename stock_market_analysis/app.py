@@ -2,7 +2,7 @@ from time import sleep
 
 from commun.answer_choice import AnswerChoice
 from commun import utils, constants as k
-from economic.analysis import economic_cycle_analysis, analysis_by_comparison
+from economic import analysis 
 
 def run():
     """
@@ -63,9 +63,9 @@ def my_app():
     
     if(ans == 1):
         #Si 1 choisi appeler la fonction analyse par cycle economie
-        economic_cycle_analysis()
+        analysis.economic_cycle_analysis()
     elif(ans == 2):
         #Si 2 choisi appeler la fonction analyse par comparaison        analysis_by_comparison()
-        analysis_by_comparison()
+        analysis.analysis_by_comparison()
     else:
         print('Aucune analyse est possible')
