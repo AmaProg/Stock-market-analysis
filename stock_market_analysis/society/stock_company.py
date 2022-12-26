@@ -1,32 +1,59 @@
+import copy
+
 from society.overview import Overview
 from society.history_data import HistoryData
 from society.financial_statement import FinancialStatement
+from society.financial_ratio import FinancialRatio
 from commun import utils
 
 class Enterprise:
-    overview = Overview()
-    history_data = HistoryData()
-    financial_statement = FinancialStatement()
+    
+    def __init__(self) -> None:
+        self.overview = Overview()
+        self.history_data = HistoryData()
+        self.financial_statement = FinancialStatement()
+        self.financial_ratio = FinancialRatio()
 
     #-----  properties -----
     @property
     def company_name(self):
-        return self._company_name
-
-    @company_name.setter
-    def company_name(self, value):
-        self._company_name = value
+        return self.overview.get_company_name()
 
     @property
     def symbol(self):
-        return self._symbol
+        return self.overview.get_symbol()
+    
+    @property
+    def share_price(self):
+        return self.overview.get_share_price()
+    
+    @property
+    def annual_dividend(self):
+        return self.get_annual_dividend()
+    
+    @property
+    def dividend_growth(self):
+        return self.history_data.get_dividend_growth()
+    
+    @property
+    def dividend_yield(self):
+        return self.financial_ratio.get_decimal_dividend_yield() * 100
+    
+    @property
+    def is_aristocrate(self):
+        return self.history_data.is_aristocrate_dividend()
 
-    @symbol.setter
-    def symbol(self, value):
-        self._symbol = value
     #-----  end properties -----
 
     #-----  methods -----
+    def get_annual_dividend(self):
+        decimal_dividend_yield = self.financial_ratio.get_decimal_dividend_yield()
+        share_price = self.share_price
+        
+        annual_dividend = decimal_dividend_yield * share_price
+        
+        return annual_dividend
+    
     def to_json(self,path:str) -> None:
         f"""
         La fonction {self.to_json} permet de sauvegarder les 
@@ -36,6 +63,7 @@ class Enterprise:
 
         data['profile'] = self.overview.profile
         data['historical_dividend'] = self.history_data.historical_dividend
+        data['financial_ratio'] = self.financial_ratio.company_financial_ratio
 
         utils.write_json_file(path, data)
 
@@ -49,6 +77,7 @@ class Enterprise:
 
         self.overview.profile = json_data['profile']
         self.history_data.historical_dividend = json_data ['historical_dividend']
+        self.financial_ratio.company_financial_ratio = json_data['financial_ratio']
 
     #----- end methods -----
     

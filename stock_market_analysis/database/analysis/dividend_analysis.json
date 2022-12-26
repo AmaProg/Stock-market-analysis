@@ -1,0 +1,30 @@
+[
+  {
+    "Entreprise": "TC Energy Corporation",
+    "Ticker": "TRP",
+    "BPA ($)": 0,
+    "Croiss. BPA (%)": 0,
+    "Div Annuel ($)": 3.632,
+    "Croiss. Div (%)": 3.853790231176002,
+    "Prix action ($)": 40.71,
+    "Rendement (%)": 8.921640874478015,
+    "Croiss. estimer (%)": 0,
+    "Performance (%)": 0,
+    "Distribution Profit (%)": 0,
+    "Aristocrat dividend": 10
+  },
+  {
+    "Entreprise": "Enbridge Inc.",
+    "Ticker": "ENB",
+    "BPA ($)": 0,
+    "Croiss. BPA (%)": 0,
+    "Div Annuel ($)": 2.838,
+    "Croiss. Div (%)": 4.870032714497952,
+    "Prix action ($)": 39.49,
+    "Rendement (%)": 7.186629526462395,
+    "Croiss. estimer (%)": 0,
+    "Performance (%)": 0,
+    "Distribution Profit (%)": 0,
+    "Aristocrat dividend": 5
+  }
+]

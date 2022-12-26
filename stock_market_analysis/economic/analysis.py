@@ -97,9 +97,6 @@ def analysis_by_comparison():
                 
         if(len(bad_ticker_list) != 0):
             bad_symbole_selected(number_element, f"les symboles suivante : {bad_ticker_list} ne sont pas valide")
-            # print(f"les symboles suivante : {bad_ticker_list} ne sont pas valide")
-            # utils.wait(k.TIME_TO_DISPLAY_ERROR_MSG)
-            # ticker_list = list(map(str,input("\nEntrer les symbol des entreprises a analyser (separer par espace) : ").strip().split()))[:number_element]
             continue
         
         #Cette section permet de verifier si les symboles selectionner par l'utilisateur verse des dividends.
@@ -120,7 +117,9 @@ def analysis_by_comparison():
         
         strategic.dividend_strategic(ticker_list)
 
+        fa = FundamentalAnalysis(ticker_list)
         
+        fa.build_dividend_strategy_table()
     
     # ----- choix 2 -----
     elif(ans == 2):
@@ -135,7 +134,7 @@ def analysis_by_comparison():
         
 def _check_ticker_dividend(ticker_list : list) -> bool: 
     
-    dividend_symbol_list = utils.read_json_file(k.STOCK_MARKET_SYMBOL_LIST_PATH)
+    dividend_symbol_list = utils.read_json_file(k.DIVIDEND_SYMBOL_LIST)
     number_element = len(ticker_list)
     bad_ticker_list = []
     
@@ -164,13 +163,6 @@ def _check_ticker_dividend(ticker_list : list) -> bool:
     
     else:
         return False
-        
-# # def _get_json_file(json_file):    
-# #     f = open (json_file, "r")
-# #     symbol_list = json.loads(f.read())
-# #     f.close()
-    
-#     return symbol_list
 
 def bad_symbole_selected(number_element: int, msg: str):
     f"""
