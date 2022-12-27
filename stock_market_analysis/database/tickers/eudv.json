@@ -6,7 +6,7 @@
       "beta": 0.0,
       "volAvg": 1861,
       "mktCap": 0,
-      "lastDiv": 0.647,
+      "lastDiv": 0.713,
       "range": "34.329-54.831",
       "changes": 0.0416,
       "companyName": "ProShares MSCI Europe Dividend Growers ETF",
@@ -348,5 +348,6 @@
       "priceFairValueTTM": null,
       "dividendPerShareTTM": 0.713
     }
-  ]
+  ],
+  "income_statement": []
 }

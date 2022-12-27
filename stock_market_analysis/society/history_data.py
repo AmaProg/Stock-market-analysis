@@ -51,7 +51,7 @@ class HistoryData:
         
         dividend_dict = self.__get_historical_dividend_by_year()
         
-        orc = FinancialCalculator.overall_rate_of_change(dividend_dict)
+        orc = FinancialCalculator.overall_rate_of_change(dividend_dict, 'dividend')
                 
         value = FinancialCalculator.calculate_average_annual_growth_rate(orc, len(dividend_dict))        
             

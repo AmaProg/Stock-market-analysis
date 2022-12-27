@@ -14,7 +14,7 @@ HEADER_RENDEMENT = 'Rendement (%)'
 HEADER_GROWTH_ESTIMATE = "Croiss. estimer (%)"
 HEADER_NOTE = 'Performance (%)'
 HEADER_DISTRIBUTION_INCOME = 'Distribution Profit (%)'
-HEADER_DIVIDEND_ARISTOCRATS = 'Aristocrat dividend'
+HEADER_DIVIDEND_ARISTOCRATS = 'Aristocrat dividend (number reduce)'
 
 class FundamentalAnalysis:
     
@@ -58,6 +58,11 @@ class FundamentalAnalysis:
             self.__table[HEADER_RENDEMENT] = enterprise.dividend_yield
             self.__table[HEADER_GROWTH_DIV] = enterprise.dividend_growth
             self.__table[HEADER_DIVIDEND_ARISTOCRATS] = enterprise.is_aristocrate
+            self.__table[HEADER_EPS] = enterprise.financial_statement.eps
+            self.__table[HEADER_GROWTH_EPS] = enterprise.financial_statement.eps_growth
+            self.__table[HEADER_GROWTH_ESTIMATE] = enterprise.estimate_growth
+            self.__table[HEADER_NOTE] = enterprise.estimate_performance
+            self.__table[HEADER_DISTRIBUTION_INCOME] = enterprise.distribution_profit
             
             value.append(self.__table)
             

@@ -60,7 +60,7 @@ def new_dividend_analysis(new_ticker_dict: dict):
             enterprise.overview.profile = fmp.get_profile(ticker)
             enterprise.history_data.historical_dividend = fmp.get_historical_dividend(ticker)
             enterprise.financial_ratio.company_financial_ratio = fmp.get_company_financial_ratio(ticker)
-            enterprise.financial_statement.income_statement = fmp.get_income_statement(ticker)
+            enterprise.financial_statement.income_statement.historical_income_statement = fmp.get_income_statement(ticker)
             enterprise.to_json(f"{k.TICKERS_PATH}/{ticker}.json")
             utils.wait(0.100)
             

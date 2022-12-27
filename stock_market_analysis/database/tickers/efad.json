@@ -6,7 +6,7 @@
       "beta": 0.0,
       "volAvg": 9433,
       "mktCap": 0,
-      "lastDiv": 0.537,
+      "lastDiv": 0.623,
       "range": "30.07-46.11",
       "changes": 0.1203,
       "companyName": "ProShares MSCI EAFE Dividend Growers ETF",
@@ -402,5 +402,6 @@
       "priceFairValueTTM": null,
       "dividendPerShareTTM": 0.623
     }
-  ]
+  ],
+  "income_statement": []
 }

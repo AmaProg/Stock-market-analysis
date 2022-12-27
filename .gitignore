@@ -1,4 +1,5 @@
 .env
 venv_laptop/
 venv/
-__pycache__
+tickers/
+dividend_analysis.json

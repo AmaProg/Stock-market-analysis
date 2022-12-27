@@ -6,7 +6,7 @@
       "beta": 0.0,
       "volAvg": 1990,
       "mktCap": 0,
-      "lastDiv": 0.403,
+      "lastDiv": 1.662,
       "range": "39.76-59.5",
       "changes": 0.2658,
       "companyName": "ProShares MSCI Emerging Markets Dividend Growers ETF",
@@ -330,5 +330,6 @@
       "priceFairValueTTM": null,
       "dividendPerShareTTM": 1.662
     }
-  ]
+  ],
+  "income_statement": []
 }

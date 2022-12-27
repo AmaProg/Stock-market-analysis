@@ -18,15 +18,19 @@ class FinancialCalculator:
         return value
     
     @staticmethod    
-    def overall_rate_of_change(data: dict):
+    def overall_rate_of_change(data: dict, key: str):
         """
         Le coefficient multiplicateur global est égal au produit 
-        des coefficients multiplicateurs successifs sur plusieurs 
-        périodes. Il se calcule avec le coefficient multiplicateur
-        global : (1+t1) x (1+t2) x …
-        
-        {orc}
-        """
+        # des coefficients multiplicateurs successifs sur plusieurs 
+        # périodes. Il se calcule avec le coefficient multiplicateur
+        # global : (1+t1) x (1+t2) x …
+
+        Args:
+            data (dict): _description_
+
+        Returns:
+            _type_: _description_
+        """        
         
         value: float = 1
         
@@ -40,8 +44,8 @@ class FinancialCalculator:
         mf: float = 1
         
         for i in range(0, number_element - 1):
-            start_value = df['dividend'][i]
-            arrival_value = df['dividend'][i+1]
+            start_value = df[key][i]
+            arrival_value = df[key][i+1]
             value *= FinancialCalculator.calculate_multiplying_factor(start_value, arrival_value)
             
         return value
