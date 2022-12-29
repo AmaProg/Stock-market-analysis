@@ -12,7 +12,7 @@ class Enterprise:
         self.overview = Overview()
         self.history_data = HistoryData()
         self.financial_statement = FinancialStatement()
-        self.financial_ratio = FinancialRatio()
+        self.financial_ratio = FinancialRatio(self.financial_statement)
 
     #-----  properties -----
     @property

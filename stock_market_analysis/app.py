@@ -3,7 +3,7 @@ from commun import utils, constants as k
 from economic import analysis 
 
 def run():
-    f"""
+    """
         Cette fonction {run} demarre l'application principale.
     """
 
