@@ -3,3 +3,4 @@ venv_laptop/
 venv/
 tickers/
 dividend_analysis.json
+__pycache__
