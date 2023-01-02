@@ -5,3 +5,4 @@ tickers/
 __pycache__
 stats_can.h5
 dividend_analysis.json
+output
