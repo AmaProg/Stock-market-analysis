@@ -134,7 +134,7 @@ def analysis_by_comparison():
         
 def _check_ticker_dividend(ticker_list : list) -> bool: 
     
-    dividend_symbol_list = utils.read_json_file(k.DIVIDEND_SYMBOL_LIST)
+    dividend_symbol_list = utils.read_json_file(k.DIVIDEND_SYMBOL_LIST_PATH)
     number_element = len(ticker_list)
     bad_ticker_list = []
     

@@ -1,6 +1,7 @@
+import menu
+
 from commun.answer_choice import AnswerChoice
 from commun import utils, constants as k
-from economic import analysis 
 
 def run():
     """
@@ -31,36 +32,26 @@ def run():
 def my_app():
 
     utils.display_title("Debut d'Analyse fondamentale")
+
+    #Verifier si le dossier ticker est present dans la base de donnee
+    if(utils.path_exists(k.TICKERS_PATH) == False):
+        utils.create_folder(k.TICKERS_PATH)
     
-    # Demander a l'utilisateur quel type d'analyse veut il faire
-    #   1. Analyse par cycle economie du pays (cycle economie)
-    #   2. Analyse par comparaison d'entreprise (comparaison d'entreprise)
     while True:
+
+        utils.display_menu(menu.new_analysis_options)
+
         try:
-            print("1. Analyse par cycle economique")
-            print("2. Analyse par comparaison d'entreprise\n")
-    
-            ans = int(input("Quel type d'analyse voulez vous faire (1 ou 2) : "))
-            
-            if(ans <= 0 or ans > 2):
-                print("\nLe choix doit etre 1 ou 2\n")
-                utils.wait(k.TIME_TO_DISPLAY_ERROR_MSG)
-                continue
+            ans = int(input("\nQuel type d'analyse voulez vous faire : "))
             
         except ValueError:
-            print("\nVotre choix n'est pas valide \n")
-            utils.wait(k.TIME_TO_DISPLAY_ERROR_MSG)
+            utils.display_error("Le choix doit etre un nombre entre 1 et 3.")
             continue
-        
-        else:
+
+        if(ans in menu.method_options):
+            menu.method_options[ans]()
             break
-    
-    
-    if(ans == 1):
-        #Si 1 choisi appeler la fonction analyse par cycle economie
-        analysis.economic_cycle_analysis()
-    elif(ans == 2):
-        #Si 2 choisi appeler la fonction analyse par comparaison        analysis_by_comparison()
-        analysis.analysis_by_comparison()
-    else:
-        print('Aucune analyse est possible')
+        else:
+            utils.display_error("Votre choix n'est pas valide")
+
+

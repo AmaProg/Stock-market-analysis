@@ -104,6 +104,8 @@ class Enterprise:
         data['historical_dividend'] = self.history_data.historical_dividend
         data['financial_ratio'] = self.financial_ratio.company_financial_ratio
         data['income_statement'] = self.financial_statement.income_statement.historical_income_statement
+        data['balance_sheet'] = self.financial_statement.balance_sheet.historical_balance_sheet
+        data['cash_flow'] = self.financial_statement.cash_flow.historical_cash_flow
 
         utils.write_json_file(path, data)
 
@@ -119,6 +121,8 @@ class Enterprise:
         self.history_data.historical_dividend = json_data ['historical_dividend']
         self.financial_ratio.company_financial_ratio = json_data['financial_ratio']
         self.financial_statement.income_statement.historical_income_statement = json_data['income_statement']
+        self.financial_statement.balance_sheet.historical_balance_sheet = json_data['balance_sheet']
+        self.financial_statement.cash_flow.historical_cash_flow = json_data['cash_flow']
 
     #----- end methods -----
     

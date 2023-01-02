@@ -1,4 +1,4 @@
-from app.network_request import NetworkRequest
+from network.network_request import NetworkRequest
 
 class Alpha_vantage:
     # ----- properties -----

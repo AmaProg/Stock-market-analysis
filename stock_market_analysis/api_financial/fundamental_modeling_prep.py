@@ -43,6 +43,20 @@ class FundamentalModelingPrep:
         json_data = NetworkRequest.send_request(uri)
         
         return json_data
+
+    def get_balance_sheet_statement(self, ticker: str):
+        uri = "{}/{}/{}?apikey={}".format(self.base_uri, FMPRessource.BALANCE_SHEET.value, ticker.upper(), self.api_key)
+        
+        json_data = NetworkRequest.send_request(uri)
+        
+        return json_data
+
+    def get_cash_flow_statement(self, ticker: str):
+        uri = "{}/{}/{}?apikey={}".format(self.base_uri, FMPRessource.CASH_FLOW.value, ticker.upper(), self.api_key)
+        
+        json_data = NetworkRequest.send_request(uri)
+        
+        return json_data
         
     #----- end methods -----
     
@@ -51,3 +65,5 @@ class FMPRessource(Enum):
     HISTORICAL_DIVIDEND = "historical-price-full/stock_dividend"
     RATIOS_TTM ="ratios-ttm"
     INCOME_STATEMENT='income-statement'
+    BALANCE_SHEET = 'balance-sheet-statement'
+    CASH_FLOW = 'cash-flow-statement'
